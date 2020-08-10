@@ -14,6 +14,7 @@ from pathlib import Path, os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog_app',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
