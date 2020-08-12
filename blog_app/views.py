@@ -1,7 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, ContactForm
+from django import template
+from django.template.loader import get_template
+from django.core.mail import EmailMessage
+from django.contrib import messages
 
 # Create your views here.
 class PostList(generic.ListView):
@@ -36,4 +40,38 @@ def post_detail(request, slug):
 
 def about_page(request):
     template_name = 'about_page.html'
-    return render(request, 'about_page.html')
+    return render(request, template_name)
+
+def contact_page(request):
+    template_name = 'contact_page.html'
+
+    if request.method == 'POST':
+        contact_form = ContactForm(data=request.POST)
+
+        if contact_form.is_valid():
+            contact_name = request.POST.get('contact_name', '')
+            email_contact = request.POST.get('email_contact', '')
+            form_content = request.POST.get('content', '')
+
+            # Email the profile with the
+            # contact information
+
+            template = get_template('contact_template.txt')
+            context = {
+                'contact_name': contact_name,
+                'email_contact': email_contact,
+                'form_content': form_content,
+            }
+            content = template.render(context)
+
+            email = EmailMessage(
+                "New contact form submission",
+                content,
+                "myblog"+'',['test@test.com'], 
+                headers = {'Reply-to': email_contact}
+            )
+            email.send()
+            messages.success(request, "E-mail sent with success")
+            return redirect('contact_page')
+    
+    return render(request, template_name, {'form': ContactForm})
