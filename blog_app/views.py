@@ -33,3 +33,7 @@ def post_detail(request, slug):
     'new_comment': new_comment,
     'comment_form': comment_form
     })
+
+def about_page(request):
+    template_name = 'about_page.html'
+    return render(request, 'about_page.html')

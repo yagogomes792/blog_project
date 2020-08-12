@@ -13,10 +13,17 @@ background-color: #f00000;
 border-color: #dc281e;
 }
 .masthead {
-background: #3398E1;
+background: #363636;
 height: auto;
 padding-bottom: 15px;
 box-shadow: 0 16px 48px #E3E7EB;
 padding-top: 10px;
+}
+#readm {
+    background-color: #363636;
+    border-color: #363636;
+}
+#page-link {
+    color: #363636;
 }
     
