@@ -7,6 +7,9 @@
         <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
         <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
         <p class="card-text ">{{ post.content | safe }}</p>
+        {% if post.image %}
+          <img src="{{ post.image.url }}" alt="{{ post.title.url }}" style="width: 500px; height: auto;">
+        {% endif %}
       </div>
     </div>
     {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
