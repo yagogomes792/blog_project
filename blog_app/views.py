@@ -1,11 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from .models import Post
-from .forms import CommentForm, ContactForm
+from .forms import CommentForm, ContactForm, CustomUserCreationForm
 from django import template
 from django.template.loader import get_template
 from django.core.mail import EmailMessage
 from django.contrib import messages
+from django.urls import reverse
+from django.contrib.auth import login
 
 # Create your views here.
 class PostList(generic.ListView):
@@ -75,3 +77,21 @@ def contact_page(request):
             return redirect('contact_page')
     
     return render(request, template_name, {'form': ContactForm})
+
+
+def dashboard(request):
+    return render(request, "users/dashboard.html")
+
+
+def register(request):
+    if request.method == 'GET':
+        return render (
+            request, 'users/register.html',
+            {'form': CustomUserCreationForm}
+        )
+    elif request.method =='POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+        return redirect(reverse('dashboard'))

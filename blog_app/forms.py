@@ -1,5 +1,6 @@
 from django import forms
 from .models import Comment
+from django.contrib.auth.forms import UserCreationForm
 
 class CommentForm(forms.ModelForm):
     class Meta:
@@ -16,3 +17,8 @@ class ContactForm(forms.Form):
         self.fields['contact_name'].label = 'Your name: '
         self.fields['email_contact'].label = 'Your email: '
         self.fields['content'].label = 'What you would like to say? '
+
+
+class CustomUserCreationForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        fields = UserCreationForm.Meta.fields + ('email',)
