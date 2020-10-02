@@ -77,11 +77,7 @@ def contact_page(request):
             return redirect('contact_page')
     
     return render(request, template_name, {'form': ContactForm})
-
-
-def dashboard(request):
-    return render(request, "users/dashboard.html")
-
+    
 
 def register(request):
     if request.method == 'GET':

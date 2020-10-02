@@ -2,21 +2,24 @@
 {% block content %}
 
 <div class="container">
-    <div class="row">
-        <div class="col-4">
-            <h1>Contact</h1>
-            <form role="form" action="" method="post">
-                {% csrf_token %}
+<h1 class="form-heading">Contact</h1>
+<div class="loginForm">
+<div class="main-div">
+    <h1>Contact</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group form-control">
                 {{ form | crispy }}
                 <button type="submit" class="btn btn-success">Submit</button>
-            </form>
-            {% if messages %}
-            <div class="alert alert-success mt-4" role="alert">
-                E-mail sent with success
-              </div>
-            {% endif %}
+            </div>
+        </form>
+        {% if messages %}
+        <div class="alert alert-success mt-4" role="alert">
+            E-mail sent with success
         </div>
-    </div>
+        {% endif %}
+</div>
+</div>
 </div>
 
 
