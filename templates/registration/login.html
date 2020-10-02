@@ -1,24 +1,28 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<style>
-    label, input, h2 {
-        display: block;
-    }
-    span.helptext {
-        display: none;
-    }
-</style>
-
-<h2>Login</h2>
-
-<form method="POST" id="login-form">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input class='login' type="submit" value="login">
-</form>
-
-<a href="{% url 'dashboard' %}">Back to dashboard</a>
-<a href="{% url 'password_reset' %}">Reset password</a>
-<a href="{% url 'register' %}">Register</a>
-
+<div class="container">
+<h1 class="form-heading">Login</h1>
+<div class="loginForm">
+<div class="main-div">
+    <div class="panel">
+        <h2>Login</h2>
+        <p>Please enter your e-mail and password</p>
+    </div>
+    <form method="POST" id="Login">
+        {% csrf_token %} 
+        <div class="form-group form-control">
+            {{ form.as_p }}
+        </div>
+        <div class="forgot">
+            <a href="{% url 'password_reset' %}">Forgot? Reset password</a>
+        </div>
+        <div class="newUser">
+            <a href="{% url 'register' %}">New? Register</a>
+        </div>
+        <button type="submit" class="btn btn-primary" value="Login">Login</button>
+    </form>
+</div>
+</div>
+</div>
 {% endblock %}

@@ -1,13 +1,23 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<h2>Register</h2>
-
-<form method="POST">
-    {% csrf_token %}
-    {{form}}
-    <input type="submit" value="Register">
-</form>
-
-<a href="{% url 'login' %}">Back to login</a>
-
+<div class="container">
+<h1 class="form-heading">Register</h1>
+<div class="loginForm">
+<div class="main-div">
+    <div class="panel">
+        <h2>Register</h2>
+        <p>Create your user</p>
+    </div>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group form-control">
+                {{ form }}
+            </div>
+            <input type="submit" value="Register">
+        </form>
+        <a href="{% url 'login' %}">Back to login</a>
+</div>
+</div>
+</div>
 {% endblock %}
