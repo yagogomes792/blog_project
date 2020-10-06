@@ -23,9 +23,8 @@
         <div class="row">
             <div class=" col-md-8 col-md-10 mx-auto">
                 <div class="site-heading">
-                    <h3 class=" site-heading my-4 mt-3 text-white"> Welcome to my awesome Blog </h3>
-                    <p class="text-light">We Love Django As much as you do..! &nbsp
-                    </p>
+                    <h3 class=" site-heading my-4 mt-3 text-white"> Welcome to my final project at college</h3>
+                    <p class="text-light">I hope you enjoy as much as I do!</p>
                 </div>
             </div>
         </div>
@@ -51,13 +50,16 @@
 </div>
 {% if is_paginated %}
   <nav aria-label="Page navigation conatiner"></nav>
-  <ul class="pagination justify-content-center">
+  <ul class="pagination pg-dark justify-content-center">
     {% if page_obj.has_previous %}
-    <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link" id="page-link">&laquo; PREV </a></li>
+    <li>
+        <a href="?page={{ page_obj.previous_page_number }}" class="page-link" id="page-link">&laquo; PREV </a>
+    </li>
     {% endif %}
     {% if page_obj.has_next %}
-    <li><a href="?page={{ page_obj.next_page_number }}" class="page-link" id="page-link"> NEXT &raquo;</a></li>
-
+    <li>
+        <a href="?page={{ page_obj.next_page_number }}" class="page-link" id="page-link"> NEXT &raquo;</a>
+    </li>
     {% endif %}
   </ul>
   </nav>
