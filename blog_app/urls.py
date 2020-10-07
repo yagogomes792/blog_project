@@ -2,6 +2,7 @@ from . import views
 from django.urls import path
 from django.conf.urls import include
 
+#Criação dos caminhos para acessar as funções e respectivas páginas
 urlpatterns = [
     path('', views.PostList.as_view(), name ='home'),
     path('<slug:slug>/', views.post_detail, name='post_detail'),
