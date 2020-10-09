@@ -9,12 +9,12 @@ pipeline {
         }
         stage('Build image'){
             steps{
-                sh 'docker build -t myBlog .'
+                sh 'docker build -t myBlog -f Dockerfile .'
             }
         }
         stage('HomolEnv'){
             steps{
-                sh 'docker-compose up'
+                sh 'docker-compose -f docker-compose.yml up'
             }
         }
     }
