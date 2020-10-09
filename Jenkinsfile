@@ -1,5 +1,6 @@
-node ('Docker') {
-
+pipeline {
+    agent any
+    
     stages {
         stage('Checkout'){
             steps{
@@ -8,12 +9,12 @@ node ('Docker') {
         }
         stage('Build image'){
             steps{
-                sh 'docker build -t myBlog -f Dockerfile .'
+                bat 'docker build -t myBlog -f Dockerfile .'
             }
         }
         stage('HomolEnv'){
             steps{
-                sh 'docker-compose -f docker-compose.yml up'
+                bat 'docker-compose -f docker-compose.yml up'
             }
         }
     }
