@@ -10,7 +10,7 @@ pipeline {
         stage('Deploy Homol '){
             steps{
                 bat 'docker-compose build'
-                bat 'docker-comnmpose up -d'
+                bat 'docker-compose up -d'
             }
         }
     }
