@@ -10,7 +10,7 @@
             {% csrf_token %}
             <div class="form-group form-control">
                 {{ form | crispy }}
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" name="sendContact" class="btn btn-success">Submit</button>
             </div>
         </form>
         {% if messages %}

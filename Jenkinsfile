@@ -13,5 +13,13 @@ pipeline {
                 bat 'docker-compose up -d'
             }
         }
+        stage('Functional test'){
+            steps{
+                dir('functional-test'){
+                    git 'https://github.com/yagogomes792/blog_tests.git/tests/'
+                    bat 'py.test'
+                }
+            }
+        }
     }
 }

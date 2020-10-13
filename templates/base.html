@@ -16,7 +16,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="mainNav">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/logo.jpg' %}" width="40" height="40" alt=""> My Django Blog</a>
+                <a name="Title" class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/logo.jpg' %}" width="40" height="40" alt="">My Django Blog</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                     aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -25,9 +25,9 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-link text-black">
                             {% if user.is_authenticated %}
-                               <p class="font-weight-bold">Hello, {{user.username}}!</p>
+                               <p name="loged" class="font-weight-bold">Hello, {{user.username}}!</p>
                             {% else %}
-                                <p class="font-weight-bold">Hello!</p>
+                                <p name="nonLoged" class="font-weight-bold">Hello!</p>
                             {% endif %}
                         </li>
                         <li class="nav-item text-black">
