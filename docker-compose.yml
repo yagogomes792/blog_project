@@ -3,9 +3,9 @@ version: "3.3"
 services:
   blog:
     build: .
-    command: python manage.py runserver 0.0.0.0:5001
+    command: python manage.py runserver 0.0.0.0:5000
     ports:
-      - 5001:5001
+      - 5000:5000
     depends_on:
       - db
 
