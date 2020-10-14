@@ -16,7 +16,7 @@ pipeline {
         stage('Functional test'){
             steps{
                 dir('functional-test'){
-                    git 'https://github.com/yagogomes792/blog_tests.git/tests/'
+                    git branch "main", url: "https://github.com/yagogomes792/blog_tests.git/tests/"
                     bat 'py.test'
                 }
             }
