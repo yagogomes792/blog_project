@@ -24,7 +24,7 @@ pipeline {
     }
     post {
         always {
-            junit 'functional-test/tests/*.xml'
+            junit 'functional-test/*.xml'
         }
     }
 }
