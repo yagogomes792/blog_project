@@ -17,14 +17,14 @@ pipeline {
            steps{
                dir('functional-test'){
                     git branch: "main", url: "https://github.com/yagogomes792/blog_tests.git"
-                    bat 'py.test'
+                    bat 'py.test -v --junitxml="results.xml"'
                 }
             }
         }
     }
     post {
         always {
-            junit 'tests/*.xml'
+            junit 'functional-test/tests/*.xml'
         }
     }
 }
